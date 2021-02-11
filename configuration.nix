@@ -16,7 +16,7 @@
 		};
                 
 		supportedFilesystems = [ "ntfs" ];
-		plymouth.enable = true; # Enable boot splash screen
+		plymouth.enable = false; # Enable boot splash screen
 	};
 	
 	
@@ -65,6 +65,7 @@
 	# Enable non-free softwre
 	# nixpkgs.config.allowUnfree = true;
 
+
   	# List services that you want to enable:
   	services = {
   	  	# Enable Xserver.
@@ -73,7 +74,6 @@
 			displayManager = {
 				lightdm = {
 					enable = true;
-					greeters.enso.enable = true;
 				};
 			};
 			desktopManager = {
@@ -89,13 +89,13 @@
 		};
 
 		# Enable picom for graphical effects in windowManagers
-		/*picom = {
-			enable = true;
+		picom = {
+			enable = false;
 			fade = true;
 			inactiveOpacity = 0.9;
 			shadow = true;
 			fadeDelta = 4;
-		};*/
+		};
 		
   		# Enable CUPS to print documents.
   		# printing.enable = true;
@@ -105,8 +105,16 @@
 	};
 	
 	
+	# Additional Programs
+	programs = {
+		qt5ct.enable = true;
+	};
+	
+	
   	# Fonts
   	fonts.fonts = with pkgs; [
+		hack-font
+		fira-code
     	        dejavu_fonts
     	        inconsolata
     	        font-awesome
@@ -128,9 +136,10 @@
 	        emacs vscodium
 	
     	        firefox chromium
-    	        vlc
     	        transmission-gtk
     	        libreoffice
+		vlc
+		audacity
     	        gimp
     	        flameshot
     	        openshot-qt
