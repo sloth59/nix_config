@@ -20,6 +20,7 @@
 	};
 
 
+	# Networking settings
 	networking = {
 		hostName = "Nix"; # Define your hostname.
 		networkmanager.enable = true; # Enables wireless
@@ -62,6 +63,7 @@
 	};
 
 
+	# Nixpkgs options
 	nixpkgs = {
 		config = {
 			# Enable non-free softwre
